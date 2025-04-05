@@ -1,0 +1,57 @@
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ChevronRight } from "lucide-react";
+
+const sections = [
+  {
+    title: "Restoring Sovereignty",
+    description:
+      "Explore our initiatives to return autonomy and self-determination to European nations through cultural revival and policy advocacy.",
+  },
+  {
+    title: "Restoring Dignity",
+    description:
+      "Learn how we aim to reinvigorate a sense of pride and purpose through heritage, arts, and philosophical exploration.",
+  },
+  {
+    title: "Indo-European Consciousness",
+    description:
+      "Reconnect with the ancestral memory and spiritual wisdom of the Indo-European tradition, cultivating a deeper civilizational awareness.",
+  },
+];
+
+export default function HomePage() {
+  return (
+    <div className="min-h-screen bg-gray-100 p-6">
+      <header className="text-center mb-12">
+        <h1 className="text-4xl font-bold mb-4">European Renaissance Foundation</h1>
+        <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+          Reviving Europe's cultural soul, sovereignty, and ancient wisdom.
+        </p>
+      </header>
+
+      <nav className="flex justify-center gap-6 mb-12">
+        {sections.map((section, idx) => (
+          <Button key={idx} variant="outline" className="text-base font-medium">
+            {section.title}
+          </Button>
+        ))}
+      </nav>
+
+      <main className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        {sections.map((section, idx) => (
+          <Card key={idx} className="rounded-2xl shadow-md">
+            <CardContent className="p-6">
+              <h2 className="text-xl font-semibold mb-2">{section.title}</h2>
+              <p className="text-gray-600 mb-4">{section.description}</p>
+              <Button variant="link" className="text-blue-600">
+                Learn More <ChevronRight className="ml-1 h-4 w-4" />
+              </Button>
+            </CardContent>
+          </Card>
+        ))}
+      </main>
+    </div>
+  );
+}
